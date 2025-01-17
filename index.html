@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Elvis ❤️ Tânia</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background-color: #ffe5ec;
+            color: #333;
+            margin: 0;
+            padding: 0;
+        }
+        h1 {
+            margin-top: 20px;
+            font-size: 2.5rem;
+        }
+        h2 {
+            font-size: 1.8rem;
+            color: #ff6680;
+        }
+        .slideshow-container {
+            width: 100%;
+            max-width: 600px;
+            margin: 20px auto;
+            position: relative;
+        }
+        .slideshow-container img {
+            width: 100%;
+            border-radius: 10px;
+            display: none;
+        }
+        .slideshow-container img.active {
+            display: block;
+        }
+        #counter {
+            font-size: 1.2rem;
+            margin-top: 20px;
+            line-height: 1.5;
+        }
+        audio {
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Elvis ❤️ Tânia</h1>
+    <h2>"Desde primeiro dia, nha coração pertence a bo."</h2>
+    <div class="slideshow-container">
+    <img src="foto1.jpg" alt="Foto 1" class="active">
+    <img src="foto2.jpg" alt="Foto 2">
+    <img src="foto3.jpg" alt="Foto 3">
+    <img src="foto4.jpg" alt="Foto 4">
+    <img src="foto5.jpg" alt="Foto 5">
+    <img src="foto6.jpg" alt="Foto 6">
+    <img src="foto7.jpg" alt="Foto 7">
+    <img src="foto8.jpg" alt="Foto 8">
+    <img src="foto9.jpg" alt="Foto 9">
+    <img src="foto10.jpg" alt="Foto 10">
+    <img src="foto11.jpg" alt="Foto 11">
+    <img src="foto12.jpg" alt="Foto 12">
+    <img src="foto13.jpg" alt="Foto 13">
+    <img src="foto14.jpg" alt="Foto 14">
+    <img src="foto15.jpg" alt="Foto 15">
+    <img src="foto16.jpg" alt="Foto 16">
+    <img src="foto17.jpg" alt="Foto 17">
+    <img src="foto18.jpg" alt="Foto 18">
+    <img src="foto19.jpg" alt="Foto 19">
+    <img src="foto20.jpg" alt="Foto 20">
+    <img src="foto21.jpg" alt="Foto 21">
+    <img src="foto22.jpg" alt="Foto 22">
+    <img src="foto23.jpg" alt="Foto 23">
+    <img src="foto24.jpg" alt="Foto 24">
+    <img src="foto25.jpg" alt="Foto 25">
+</div>
+    <p>Bo e amor de nha vida 💖</p>
+    <div id="counter"></div>
+    <audio autoplay loop controls>
+        <source src="sua_musica.mp3" type="audio/mpeg">
+        Seu navegador não suporta áudio.
+    </audio>
+    <script>
+        // Slideshow
+        let slides = document.querySelectorAll('.slideshow-container img');
+        let currentIndex = 0;
+        setInterval(() => {
+            slides[currentIndex].classList.remove('active');
+            currentIndex = (currentIndex + 1) % slides.length;
+            slides[currentIndex].classList.add('active');
+        }, 3000);
+
+        // Contador de tempo juntos
+        const startDate = new Date("2024-07-04T00:00:00"); // Data de início do namoro
+        const counterElement = document.getElementById("counter");
+
+        function updateCounter() {
+            const now = new Date();
+            const years = now.getFullYear() - startDate.getFullYear();
+            const months = now.getMonth() - startDate.getMonth() + (years * 12);
+            const totalYears = Math.floor(months / 12);
+            const totalMonths = months % 12;
+            const daysElapsed = Math.floor((now - new Date(startDate.getFullYear(), startDate.getMonth() + months, startDate.getDate())) / (1000 * 60 * 60 * 24));
+            
+            const hours = now.getHours();
+            const minutes = now.getMinutes();
+            const seconds = now.getSeconds();
+
+            counterElement.innerHTML = `
+                <strong>Estamos juntos há:</strong><br>
+                <span>${totalYears} anos, ${totalMonths} meses e ${daysElapsed} dias</span><br>
+                <span>${hours} horas, ${minutes} minutos e ${seconds} segundos</span>
+            `;
+        }
+        setInterval(updateCounter, 1000);
+        updateCounter();
+    </script>
+</body>
+</html>
+
